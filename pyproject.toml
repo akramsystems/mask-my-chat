@@ -9,12 +9,23 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     "azure-ai-textanalytics>=5.3.0",
-    "azure-identity>=1.25.0",
+    "pytest>=8.4.2",
     "python-dotenv>=1.1.1",
 ]
 
 [project.scripts]
 mask-my-chat = "mask_my_chat:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --tb=short"
+markers = [
+    "integration: marks tests as integration tests requiring real Azure credentials",
+    "unit: marks tests as unit tests with mocked dependencies"
+]
 
 [build-system]
 requires = ["hatchling"]
