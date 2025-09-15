@@ -1,0 +1,21 @@
+[project]
+name = "mask-my-chat"
+version = "0.1.0"
+description = "anonymizes conversations so they don't contain PII using the azure extract pii from text-analytics"
+readme = "README.md"
+authors = [
+    { name = "Ali Akram", email = "akramsystems@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "azure-ai-textanalytics>=5.3.0",
+    "azure-identity>=1.25.0",
+    "python-dotenv>=1.1.1",
+]
+
+[project.scripts]
+mask-my-chat = "mask_my_chat:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
